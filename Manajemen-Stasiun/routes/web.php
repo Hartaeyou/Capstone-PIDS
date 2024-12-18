@@ -4,7 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RuteController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\KeretaController;
+use App\Http\Controllers\loginController;
 
+// Auth
+Route::get('login', [loginController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/login', [loginController::class, 'login']);
+Route::post('/logout', [loginController::class, 'logout'])->name('admin.logout');
+
+// Stasiun
 Route::get('/', [PointController::class, 'index']);
 Route::post('/inputStasiun', [PointController::class, 'store'])->name('inputStasiun');
 Route::get('/formInputStasiun', [PointController::class, 'show'])->name('formInputStasiun');
