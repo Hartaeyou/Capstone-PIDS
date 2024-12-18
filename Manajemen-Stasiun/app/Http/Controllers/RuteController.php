@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class RuteController extends Controller
 {
     public function index(){
-        $rutes = Rute::with(['points'])->get();
+        $rutes = Rute::with(['points'])->paginate(5);
         return view('Rute.rute', compact('rutes'));
     }
 
@@ -70,5 +70,12 @@ class RuteController extends Controller
         $rute->points()->sync($points);
 
         return redirect()->route('rute.index')->with('success', 'Rute berhasil diperbarui!');
+    }
+
+    public function destroy ($id)
+    {
+        $rute = Rute::find($id);
+        $rute->delete();
+        return redirect()->route('rute.index')->with('success', 'Rute berhasil dihapus!');
     }
 }

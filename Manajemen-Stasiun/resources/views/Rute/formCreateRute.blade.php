@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<div class="container">
+@extends('layout.main')
+
+@section('content')
+<div class="container-fluid">
     <h1>Buat Rute Baru</h1>
 
     <!-- Input untuk Nama Rute -->
@@ -21,6 +16,8 @@
         <thead>
             <tr>
                 <th>Nama Point</th>
+                <th>latitude</th>
+                <th>longitude</th>
                 <th>Urutan</th>
             </tr>
         </thead>
@@ -34,27 +31,64 @@
                         </div>
                     </td>
                     <td>
-                        <input type="number" class="form-control point-sequence" id="sequence_{{ $point->point_id }}" min="1" max="{{ $points->count() }}" value="{{ $loop->index + 1 }}">
+                        {{$point->latitude}}
+                    </td>
+                    <td>
+                        {{$point->longitude}}
+                    </td>
+
+                    <td>
+                        <input type="number" class="form-control point-sequence" id="sequence_{{ $point->point_id }}" min="1" disabled>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    <button id="submit-button" class="btn btn-primary">Simpan</button>
+    <button id="submit-button" class="btn btn-orange">Simpan</button>
     <a href="{{ route('rute.index') }}" class="btn btn-secondary">Batal</a>
 </div>
 
-<!-- Tambahkan JavaScript di bawah -->
+<!-- JavaScript -->
 <script>
+    const checkboxes = document.querySelectorAll('.point-checkbox');
+
+    // Fungsi untuk mengatur max urutan berdasarkan jumlah checkbox yang dicentang
+    function updateSequenceLimits() {
+        const checkedCheckboxes = document.querySelectorAll('.point-checkbox:checked');
+        const checkedCount = checkedCheckboxes.length;
+
+        // Update atribut max di setiap input urutan
+        checkboxes.forEach(checkbox => {
+            const sequenceInput = document.getElementById(`sequence_${checkbox.value}`);
+            if (checkbox.checked) {
+                sequenceInput.max = checkedCount; // Tetapkan max sesuai jumlah yang dicentang
+            } else {
+                sequenceInput.max = ''; // Kosongkan max jika tidak dicentang
+            }
+        });
+    }
+
+    // Event listener untuk setiap checkbox
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const sequenceInput = document.getElementById(`sequence_${this.value}`);
+            if (this.checked) {
+                sequenceInput.disabled = false; // Aktifkan input urutan
+                sequenceInput.value = ''; // Kosongkan nilai input
+            } else {
+                sequenceInput.disabled = true;  // Nonaktifkan input urutan
+                sequenceInput.value = '';       // Kosongkan nilai input
+            }
+            updateSequenceLimits(); // Update batas max setelah checkbox berubah
+        });
+    });
+
+    // Submit Button Logic
     document.getElementById('submit-button').addEventListener('click', async function (e) {
-        e.preventDefault(); // Mencegah default action tombol
+        e.preventDefault();
 
-        // Ambil nama rute
         const namaRute = document.getElementById('nama_rute').value;
-
-        // Ambil semua checkbox point dan sequence yang sesuai
-        const checkboxes = document.querySelectorAll('.point-checkbox');
         const selectedPoints = [];
 
         checkboxes.forEach((checkbox) => {
@@ -88,14 +122,13 @@
         };
 
         try {
-            // Kirim data menggunakan Fetch API
             const response = await fetch("{{ route('rute.store') }}", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}" // Laravel CSRF token
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
                 },
-                body: JSON.stringify(data) // Konversi data ke JSON
+                body: JSON.stringify(data)
             });
 
             if (response.ok) {
@@ -111,6 +144,4 @@
         }
     });
 </script>
-
-</body>
-</html>
+@endsection
