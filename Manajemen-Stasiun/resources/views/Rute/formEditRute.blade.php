@@ -1,51 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Rute</title>
-    <style>
-        .move-buttons {
-            display: flex;
-            gap: 5px;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
+@extends('layout.main')
+
+@section('content')
+<div class="container-fluid">
     <h1>Edit Rute: {{ $rute->nama_rute }}</h1>
 
     <div class="mb-3">
         <label for="nama_rute" class="form-label">Nama Rute</label>
         <input type="text" class="form-control" id="nama_rute" name="nama_rute" value="{{ $rute->nama_rute }}">
     </div>
-
-    <h3>Point (Stasiun) dalam Rute</h3>
-    <table class="table table-bordered" id="points-table">
-        <thead>
-            <tr>
-                <th>Nama Point</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($rute->points as $point)
-                <tr data-index="{{ $loop->index }}" data-id="{{ $point->point_id }}">
-                    <td>{{ $point->nama }}</td>
-                    <td>
-                        <input type="hidden" class="form-control sequence-input" value="{{ $point->pivot->sequence }}" readonly>
-                    </td>
-                    <td>
-                        <div class="move-buttons">
-                        <button type="button" class="btn btn-secondary move-up">Naik</button>
-                        <button type="button" class="btn btn-secondary move-down">Turun</button>
-                        <button type="button" class="btn btn-danger delete-point">Hapus</button>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
 
     <div class="mb-3">
         <label for="new_point" class="form-label">Tambah Stasiun</label>
@@ -55,8 +17,42 @@
                 <option value="{{ $point->point_id }}">{{ $point->nama }}</option>
             @endforeach
         </select>
-        <button type="button" id="add-point" class="btn btn-secondary mt-2">Tambah Stasiun</button>
+        <button type="button" id="add-point" class="btn btn-sm btn-secondary mt-2">Tambah</button>
     </div>
+
+    <h3>Point (Stasiun) dalam Rute</h3>
+    <table class="table table-bordered" id="points-table">
+        <thead>
+            <tr>
+                <th>Id Point</th>
+                <th>Nama Point</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($rute->points as $point)
+                <tr data-index="{{ $loop->index }}" data-id="{{ $point->point_id }}">
+                    <td>{{ $point->point_id }}</td>
+                    <td>{{ $point->nama }}</td>
+                        <input type="hidden" class="form-control sequence-input" value="{{ $point->pivot->sequence }}" readonly>
+                    <td>
+                        <div class="move-buttons d-flex justify-content-center">
+                            <button type="button" class="me-3 btn btn-sm btn-secondary move-up">
+                                <i class="fa-solid fa-arrow-up"></i>
+                            </button>
+                            <button type="button" class="me-3 btn btn-sm btn-secondary move-down">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-danger delete-point">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
 
     <button id="save-button" class="btn btn-primary">Simpan</button>
     <a href="{{ route('rute.index') }}" class="btn btn-secondary">Batal</a>
@@ -93,13 +89,22 @@
             const newRow = document.createElement('tr');
             newRow.setAttribute('data-id', selectedPointId);
             newRow.innerHTML = `
+                <td>${selectedPointId}</td>
                 <td>${selectedPointName}</td>
-                <td><input type="hidden" class="form-control sequence-input" value="" readonly></td>
+                <input type="hidden" class="form-control sequence-input" value="" readonly>
                 <td>
-                    <div class="move-buttons">
-                        <button type="button" class="btn btn-secondary move-up">Naik</button>
-                        <button type="button" class="btn btn-secondary move-down">Turun</button>
-                        <button type="button" class="btn btn-danger delete-point">Hapus</button>
+                    <div class="d-flex justify-content-center">
+                        <div class="move-buttons">
+                            <button type="button" class="me-3 btn btn-sm btn-secondary move-up">
+                                <i class="fa-solid fa-arrow-up"></i>
+                            </button>
+                            <button type="button" class="me-3 btn btn-sm btn-secondary move-down">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-danger delete-point">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     </div>
                 </td>
             `;
@@ -205,7 +210,4 @@
     });
 
 </script>
-
-
-</body>
-</html>
+@endsection

@@ -10,7 +10,9 @@ class PointController extends Controller
 {
     public function index ()
     {
-        return view('Point.inputStasiun');
+        $points = Point::all();
+        return view('Point.seeOutput', compact('points'));
+
     }
 
     public function store(Request $request)
@@ -34,8 +36,7 @@ class PointController extends Controller
     // Melihat semua data stasiun yang telah dimasukkan
     public function show()
     {
-        $points = Point::all();
-        return view('Point.seeOutput', compact('points'));
+        return view('Point.inputStasiun');
     }
 
     // edit stasiun

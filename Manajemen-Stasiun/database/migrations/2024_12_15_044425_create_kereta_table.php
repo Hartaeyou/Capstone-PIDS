@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('kereta', function (Blueprint $table) {
             $table->id('kereta_id');
             $table->string('nama_kereta', 100);
+            $table->string('kode_kereta', 255)->unique();
             $table->foreignId('rute_id')->nullable()->constrained('rute')->references('rute_id')->onDelete('set null');
             $table->timestamps();
         });
