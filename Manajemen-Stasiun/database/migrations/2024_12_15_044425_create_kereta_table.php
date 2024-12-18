@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('Point', function (Blueprint $table) {
-            $table->integer('order')->after('longitude')->default(0);
+        Schema::create('kereta', function (Blueprint $table) {
+            $table->id('kereta_id');
+            $table->string('nama_kereta', 100);
+            $table->foreignId('rute_id')->nullable()->constrained('rute')->references('rute_id')->onDelete('set null');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('Point', function (Blueprint $table) {
-            $table->dropColumn('order');
-        });
+        Schema::dropIfExists('kereta');
     }
 };

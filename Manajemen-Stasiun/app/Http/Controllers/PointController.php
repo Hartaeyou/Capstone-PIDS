@@ -10,41 +10,63 @@ class PointController extends Controller
 {
     public function index ()
     {
-        return view('inputStasiun');
+        return view('Point.inputStasiun');
     }
 
     public function store(Request $request)
     {
-        $position = $request->input('position', null); // Posisi di mana data disisipkan
-        $newOrder = 1;
-    
-        if ($position) {
-            // Jika posisi spesifik diberikan, geser data berikutnya
-            Point::where('order', '>=', $position)
-                ->increment('order');
-    
-            $newOrder = $position;
-        } else {
-            // Jika tidak diberikan, masukkan di akhir
-            $newOrder = Point::max('order') + 1;
-        }
-    
-        $point = new Point();
-        $point->name = $request->Name;
-        $point->latitude = $request->Latitude;
-        $point->longitude = $request->Longitude;
-        $point->order = $newOrder;
-        $point->save();
+        // Validasi data yang dikirimkan
+        $Validate= $request->validate([
+            'Name' => 'required',
+            'Latitude' => 'required',
+            'Longitude' => 'required',
+        ]);  
+        // Input data ke database
+        Point::create([
+            'nama' => $Validate['Name'],
+            'latitude' => $Validate["Latitude"],
+            'longitude' => $Validate["Longitude"]
+        ]);
     
         return redirect('/')->with('success', 'Point berhasil ditambahkan!');
     }
 
-    
-    
-    public function seeOutput ()
+    // Melihat semua data stasiun yang telah dimasukkan
+    public function show()
     {
-        $points = Point::orderBy('order')->get();
-        return view('seeOutput', compact('points'));
+        $points = Point::all();
+        return view('Point.seeOutput', compact('points'));
     }
-    
+
+    // edit stasiun
+    public function formUpdateStasiun($id){
+        $updateForm = Point::where('point_id',$id)->first();
+        return view('Point.formUpdateStasiun', compact('updateForm'));
+    }
+    public function edit(Request $request, $id)
+    {
+        // Validasi data yang dikirimkan
+        $Validate= $request->validate([
+            'Name' =>'required',
+            'Latitude' =>'required',
+            'Longitude' =>'required',
+        ]); 
+        
+        // Update data ke database
+        $point = Point::find($id);
+        $point->update([
+            'nama' => $Validate['Name'],
+            'latitude' => $Validate["Latitude"],
+            'longitude' => $Validate["Longitude"]
+        ]);
+        return redirect('/')->with('success', 'Point berhasil diedit!');
+    }
+
+    // delete stasiun
+    public function destroy($id)
+    {
+        $point = Point::find($id);
+        $point->delete();
+        return redirect('/')->with('success', 'Point berhasil dihapus!');
+    }
 }

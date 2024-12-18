@@ -6,19 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{ route('inputStasiun') }}" method="post">
+<body>
+    <form action="{{ route('updateStasiun', ['id' => $updateForm->point_id]) }}" method="post">
         @csrf
         <label for="Name">Nama</label>
-        <input type="text" name = "Name" id = "Name">
+        <input type="text" name = "Name" id = "Name" value="{{ $updateForm->nama }}">
 
         <label for="Longitude">Longitude</label>
-        <input type="text" name = "Longitude" id = "Longitude">
+        <input type="text" name = "Longitude" id = "Longitude" value="{{ $updateForm->longitude }}">
 
         <label for="Latitude">Latitude</label>
-        <input type="text" name = "Latitude" id = "Longitude">
+        <input type="text" name = "Latitude" id = "Longitude" value="{{ $updateForm->latitude }}">
 
-        <label for="position">Posisi</label>
-        <input type="number" name="position" id="position" placeholder="Masukkan posisi (opsional)">
 <!-- 
         <label for="Name">Prev</label>
         <input type="text" name = "Longitude" id = "Longitude">
