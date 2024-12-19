@@ -9,7 +9,7 @@
     </div>
     <ul class="sidebar-nav">
         <li class="sidebar-item">
-            <a href="/" class="sidebar-link">
+            <a href="/showStasiun" class="sidebar-link">
                 <img src="{{ URL('img/icon/Vector.svg') }}" alt="" srcset="">
                 <span>Stasiun</span>
             </a>
@@ -30,7 +30,7 @@
         </li>
     </ul>
     <div class="sidebar-footer">
-            <a href="#" class="sidebar-link">
+            <a href="/logout" class="sidebar-link">
                 <img src="{{ URL('img/icon/Logout.svg') }}" alt="" srcset="">   
                 <span>LogOut</span>
             </a>

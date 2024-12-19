@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <h1 style="font-weight : bold; font-size : 22px">Tambah Stasiun Baru</h1>
-        <form action="{{ route('inputStasiun') }}" method="post">
+        <form action="{{ route('stasiun.store') }}" method="post">
             @csrf
             <div class="mb-3 mt-5">
                 <label for="Name" style="font-weight : bold;  font-size : 15px; color : #6C6C6C" class="form-label">Nama</label>

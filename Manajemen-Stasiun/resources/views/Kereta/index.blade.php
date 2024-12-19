@@ -46,7 +46,7 @@
             <hr>
         </div>
         <div class="col-md-2">
-            <a href="{{ route('formCreateRute') }}" class="btn btn-orange btn-md" style="margin-top: 20px;">Tambah Kereta</a>
+            <a href="{{ route('kereta.create') }}" class="btn btn-orange btn-md" style="margin-top: 20px;">Tambah Kereta</a>
         </div>
     </div>
 
@@ -58,7 +58,7 @@
                 <th>Nama Kereta</th>
                 <th>Kode</th>
                 <th>Rute</th>
-                <th>Aksi</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -76,5 +76,8 @@
         @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-end">
+        {{ $keretas->links() }}
+    </div>
 </div>
 @endsection

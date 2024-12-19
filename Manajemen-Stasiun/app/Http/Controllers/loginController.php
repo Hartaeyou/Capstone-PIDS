@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 class loginController extends Controller
 {
     // Show the admin login form
@@ -23,7 +23,7 @@ class loginController extends Controller
 
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(route('inputStasiun'));
+            return redirect()->intended(route('stasiun.index'));
         }
 
         return back()->withErrors([
@@ -39,12 +39,9 @@ class loginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route('login'));
+        return redirect(route('admin.login'));
     }
 
     // Show the admin dashboard
-    public function dashboard()
-    {
-        return view('inputStasiun');
-    }
+
 }

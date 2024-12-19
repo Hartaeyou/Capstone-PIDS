@@ -31,27 +31,6 @@
         font-size: 17px;
     }
 
-    /* Styling Pagination */
-    .page-link {
-        color: #000000 !important;
-        background-color: #ffffff;
-        border: 1px solid #dee2e6;
-    }
-
-    .page-link:hover {
-        color: #ffffff !important;
-        background-color: #EE6B23;
-        border-color: #EE6B23;
-    }
-
-    .page-item.active .page-link {
-        color: #ffffff !important;
-        background-color: #EE6B23;
-        border-color: #EE6B23;
-        font-weight: bold;
-    }
-
-
 </style>
 
 <div class="container-fluid">
@@ -72,7 +51,7 @@
                 <th>No</th>
                 <th>Nama Rute</th>
                 <th>Jumlah Stasiun</th>
-                <th>Aksi</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

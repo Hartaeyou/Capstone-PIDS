@@ -270,6 +270,26 @@ nav.navbar{
 
 .btn-orange{
     background-color: #EE6B23 !important;
+    color: white !important;
+}
 
+/* Styling Pagination */
+.page-link {
+    color: #000000 !important;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+    color: #ffffff !important;
+    background-color: #EE6B23 !important;
+    border-color: #EE6B23;
+}
+
+.page-item.active .page-link {
+    color: #ffffff !important;
+    background-color: #EE6B23;
+    border-color: #EE6B23;
+    font-weight: bold;
 }
 

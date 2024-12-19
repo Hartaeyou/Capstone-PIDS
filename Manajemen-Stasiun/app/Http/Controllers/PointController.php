@@ -10,13 +10,14 @@ class PointController extends Controller
 {
     public function index ()
     {
-        $points = Point::all();
+        $points = Point::paginate(5);
         return view('Point.seeOutput', compact('points'));
 
     }
 
     public function store(Request $request)
     {
+
         // Validasi data yang dikirimkan
         $Validate= $request->validate([
             'Name' => 'required',
@@ -30,7 +31,7 @@ class PointController extends Controller
             'longitude' => $Validate["Longitude"]
         ]);
     
-        return redirect('/')->with('success', 'Point berhasil ditambahkan!');
+        return back()->with('success', 'Point berhasil ditambahkan!');
     }
 
     // Melihat semua data stasiun yang telah dimasukkan

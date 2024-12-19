@@ -40,11 +40,17 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Username</label>
                     <input type="text" id="email" name="email" class="form-control" placeholder="Masukkan Username" required>
+                    @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan Password" required>
+                    @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="d-grid">

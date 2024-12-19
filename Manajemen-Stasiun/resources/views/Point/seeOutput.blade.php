@@ -85,5 +85,8 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-end">
+        {{ $points->links() }}
+    </div>
 </div>
 @endsection

@@ -10,7 +10,7 @@ class KeretaController extends Controller
 {
     public function index()
     {
-        $keretas = Kereta::with(['rute'])->get();
+        $keretas = Kereta::with(['rute'])->paginate(5);
         return view('Kereta.index', compact('keretas'));
     }
 

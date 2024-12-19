@@ -11,7 +11,7 @@
 
         <div class="mb-3">
             <label for="Longitude" style="font-weight : bold;  font-size : 15px; color : #6C6C6C" class="form-label">Longitude</label>
-            <input ype="text" class="form-control" name="Longitude" id="Longitude" aria-describedby="emailHelp" value="{{ $updateForm->longitude }}">
+            <input type="text" class="form-control" name="Longitude" id="Longitude" aria-describedby="emailHelp" value="{{ $updateForm->longitude }}">
         </div>
         
         <div class="mb-3">
