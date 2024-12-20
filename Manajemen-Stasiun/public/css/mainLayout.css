@@ -94,6 +94,31 @@ body{
 .sidebar-nav{
     padding: 1rem 0;
     flex: 1 1 auto;
+    font-size: 16px;
+}
+
+.sidebar-nav .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Beri jarak antara ikon dan teks */
+}
+
+.sidebar-logo-short {
+    font-size: 20px; /* Ukuran font tetap untuk SM */
+    transition: font-size 0.3s ease;
+}
+
+.sidebar-logo {
+    font-size: 20px; /* Ukuran font tetap untuk Manajemen Stasiun */
+    transition: font-size 0.3s ease;
+}
+
+#sidebar.expand .sidebar-logo-short {
+    display: none; /* Sembunyikan singkatan saat expand */
+}
+
+#sidebar.expand .sidebar-logo {
+    display: block; /* Tampilkan teks lengkap saat expand */
 }
 
 a.sidebar-link  {

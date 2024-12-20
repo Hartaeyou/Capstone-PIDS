@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\adminLoggedIn;
 use Illuminate\Foundation\Application;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -15,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'admin' => AdminMiddleware::class,
+            'adminLoggedIn' => adminLoggedIn::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

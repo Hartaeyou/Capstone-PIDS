@@ -7,17 +7,20 @@ use App\Http\Controllers\KeretaController;
 use App\Http\Controllers\loginController;
 
 
+Route::group(['middleware' => 'adminLoggedIn'], function () {    
+
 Route::get('/', function () {
     return view('landingPage');
 });
-// Auth
 Route::get('login', [loginController::class, 'showLoginForm'])->name('admin.login');
+});
+
 Route::post('/login', [loginController::class, 'login']);
 Route::get('/logout', [loginController::class, 'logout'])->name('admin.logout');
 Route::group(['middleware' => 'admin'], function () {    
     // Stasiun
     Route::get('/showStasiun', [PointController::class, 'index'])->name('stasiun.index');
-    
+    Route::post('/inputStasiun', [PointController::class,'store'])->name('stasiun.store');
     Route::get('/formInputStasiun', [PointController::class, 'show'])->name('formInputStasiun');
     Route::get('/formUpdateStasiun/{id}', [PointController::class, 'formUpdateStasiun'])->name('formUpdateStasiun');
     Route::post('/updateStasiun/{id}', [PointController::class, 'edit'])->name('updateStasiun');

@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title', 'Tambah Data Kereta')
 @section('content')
 <h1 style="font-weight : bold; font-size : 22px"> Tambah Data Kereta</h1>
 <hr class="mb-4">
@@ -20,7 +21,7 @@
                         <option >Pilih Rute</option>
                         @foreach ($rutes as $rute)
                             <option value="{{ $rute->rute_id }}">
-                                {{ $rute->nama_rute }}
+                                {{ $rute->rute_1 }} -  {{ $rute->rute_2 }}
                             </option>
                         @endforeach
                     </select>

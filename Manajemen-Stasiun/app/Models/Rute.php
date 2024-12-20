@@ -9,7 +9,7 @@ class Rute extends Model
 {
     protected $primaryKey = 'rute_id';
     protected $table = 'rute'; // Nama tabel
-    protected $fillable = ['nama_rute']; // Kolom yang bisa diisi
+    protected $fillable = ['rute_1', 'rute_2']; // Kolom yang bisa diisi
 
     /**
      * Relasi ke model Point (stasiun).

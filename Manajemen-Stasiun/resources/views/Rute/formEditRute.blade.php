@@ -1,12 +1,25 @@
 @extends('layout.main')
-
+@section('title', 'Ubah Data Rute')
+@section('css')
+    <link rel="stylesheet" href="{{ URL('css/stationInfo.css') }}">
+@endsection
 @section('content')
 <div class="container-fluid">
-    <h1>Edit Rute: {{ $rute->nama_rute }}</h1>
+    <h1>Edit Rute: {{ $rute->rute_1 }} - {{ $rute->rute_2 }}</h1>
 
-    <div class="mb-3">
-        <label for="nama_rute" class="form-label">Nama Rute</label>
-        <input type="text" class="form-control" id="nama_rute" name="nama_rute" value="{{ $rute->nama_rute }}">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="rute_1" class="form-label">Rute Awal</label>
+                <input type="text" class="form-control" id="rute_1" name="rute_1" value="{{ $rute->rute_1 }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="rute_2" class="form-label">Rute Akhir</label>
+                <input type="text" class="form-control" id="rute_2" name="rute_2" value="{{ $rute->rute_2 }}">
+            </div>
+        </div>
     </div>
 
     <div class="mb-3">
@@ -62,7 +75,8 @@
     document.addEventListener('DOMContentLoaded', () => {
         const tableBody = document.querySelector('#points-table tbody');
         const saveButton = document.getElementById('save-button');
-        const namaRuteInput = document.getElementById('nama_rute');
+        const namaRuteInput1 = document.getElementById('rute_1');
+        const namaRuteInput2 = document.getElementById('rute_2');
         const newPointSelect = document.getElementById('new_point');
         const addPointButton = document.getElementById('add-point');
 
@@ -170,42 +184,63 @@
 
         // Event listener untuk tombol Simpan
         saveButton.addEventListener('click', async () => {
-            const rows = tableBody.querySelectorAll('tr');
-            const points = [];
-            rows.forEach((row) => {
-                const pointId = row.getAttribute('data-id');
-                const sequence = row.querySelector('.sequence-input').value;
-                points.push({ id: pointId, sequence });
-            });
+            // SweetAlert konfirmasi
+            Swal.fire({
+                title: 'Konfirmasi Simpan',
+                text: 'Apakah Anda yakin ingin menyimpan perubahan?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Simpan!',
+                cancelButtonText: 'Batal'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    const rows = tableBody.querySelectorAll('tr');
+                    const points = [];
+                    rows.forEach((row) => {
+                        const pointId = row.getAttribute('data-id');
+                        const sequence = row.querySelector('.sequence-input').value;
+                        points.push({ id: pointId, sequence });
+                    });
 
-            // Data yang akan dikirim
-            const data = {
-                nama_rute: namaRuteInput.value,
-                points: points
-            };
+                    // Data yang akan dikirim
+                    const data = {
+                        rute_1: namaRuteInput1.value,
+                        rute_2: namaRuteInput2.value,
+                        points: points
+                    };
 
-            try {
-                // Kirim data ke backend menggunakan Fetch API
-                const response = await fetch("{{ route('rute.update', $rute->rute_id) }}", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    },
-                    body: JSON.stringify(data),
-                });
+                    try {
+                        // Kirim data ke backend menggunakan Fetch API
+                        const response = await fetch("{{ route('rute.update', $rute->rute_id) }}", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            },
+                            body: JSON.stringify(data),
+                        });
 
-                if (response.ok) {
-                    alert('Rute berhasil diperbarui!');
-                    window.location.href = "{{ route('rute.index') }}"; // Redirect setelah berhasil
-                } else {
-                    const errorData = await response.json();
-                    alert('Terjadi kesalahan: ' + (errorData.message || 'Silakan coba lagi.'));
+                        if (response.ok) {
+                            Swal.fire({
+                                title: 'Berhasil',
+                                text: 'Data berhasil disimpan!',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then(() => {
+                                window.location.href = "{{ route('rute.index') }}"; // Redirect setelah berhasil
+                            });
+                        } else {
+                            const errorData = await response.json();
+                            Swal.fire('Gagal', errorData.message || 'Terjadi kesalahan. Silakan coba lagi.', 'error');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        Swal.fire('Gagal', 'Terjadi kesalahan. Silakan coba lagi.', 'error');
+                    }
                 }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Terjadi kesalahan. Silakan coba lagi.');
-            }
+            });
         });
     });
 

@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title', 'Ubah Data Stasiun')
 @section('content')
 <div class="container-fluid">
     <h1 style="font-weight : bold; font-size : 22px">Ubah Data Stasiun {{ $updateForm->nama }}</h1>
@@ -20,8 +21,40 @@
         </div>
 
         <div class="d-flex justify-content-end mt-2">
-            <button type="submit" class="btn btn-md" style="background-color : #EE6B23; color : white">Submit</button>
+            <button type="submit" class="btn btn-md submit-button" style="background-color : #EE6B23; color : white">Submit</button>
         </div>    
     </form>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const submiButton = document.querySelectorAll('.submit-button');
+
+        submiButton.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Ambil form yang sesuai
+                const form = this.closest('form');
+
+                // SweetAlert untuk konfirmasi
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Apakah anda ingin mengubah data Stasiun {{ $updateForm->nama }}?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit form jika user menekan 'Ya, hapus!'
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+</script>
+</script>
 @endsection

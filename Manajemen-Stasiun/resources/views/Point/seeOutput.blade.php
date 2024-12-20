@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title', 'Daftar Stasiun')
 @section('content')
 <style>
     /* Tabel Utama */
@@ -74,9 +75,9 @@
                         <i class="fa fa-pencil"></i>
                     </a>
                     <!-- Delete Button -->
-                    <form action="#" method="post" style="display:inline;">
+                    <form action="{{ route('deleteStasiun', $point->point_id) }}" method="post" style="display:inline;" class="delete-form">
                         @csrf
-                        <button style="color: #EE6B23" type="submit" class="btn  btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                        <button style="color: #EE6B23" type="button" class="btn btn-sm delete-button">
                             <i class="fa fa-trash"></i>
                         </button>
                     </form>
@@ -89,4 +90,37 @@
         {{ $points->links() }}
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-button');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Ambil form yang sesuai
+                const form = this.closest('form');
+
+                // SweetAlert untuk konfirmasi
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit form jika user menekan 'Ya, hapus!'
+                        form.submit();
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 @endsection

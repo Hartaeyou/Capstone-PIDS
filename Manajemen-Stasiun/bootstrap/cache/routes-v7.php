@@ -33,7 +33,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SaT6LHaCUdVtTdbk',
+            '_route' => 'generated::FxGF1KtRKWFdPtKt',
           ),
           1 => NULL,
           2 => 
@@ -89,7 +89,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::RxW8PrSzKp5ZUNd9',
+            '_route' => 'generated::MOmvzUkq7mekhmvA',
           ),
           1 => NULL,
           2 => 
@@ -109,7 +109,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::JQSRDf5rOJxieeIz',
+            '_route' => 'generated::1X39VfrMrmxaOdMQ',
           ),
           1 => NULL,
           2 => 
@@ -146,7 +146,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ghZQc07iwgjWtos6',
+            '_route' => 'generated::cV5kXoo97KPS8Kb8',
           ),
           1 => NULL,
           2 => 
@@ -199,6 +199,25 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/inputStasiun' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'stasiun.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/formInputStasiun' => 
       array (
         0 => 
@@ -232,6 +251,25 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/rute/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'rute.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -279,6 +317,25 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/kereta/store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'kereta.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/formCreateKereta' => 
       array (
         0 => 
@@ -299,67 +356,10 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/stasiun/store' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'stasiun.store',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/kereta/store' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'kereta.store',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/rute/store' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'rute.store',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
     ),
     2 => 
     array (
-      0 => '{^(?|/api/posts/([^/]++)(?|(*:29))|/formUpdateStasiun/([^/]++)(*:64)|/rute/(?|de(?|tail/([^/]++)(*:98)|lete/([^/]++)(*:118))|EditPage/([^/]++)(*:144)|update/([^/]++)(*:167))|/kereta/(?|edit/([^/]++)(*:200)|delete/([^/]++)(*:223)|update/([^/]++)(*:246))|/deleteStasiun/([^/]++)(*:278)|/updateStasiun/([^/]++)(*:309)|/storage/(.*)(*:330))/?$}sDu',
+      0 => '{^(?|/api/posts/([^/]++)(?|(*:29))|/formUpdateStasiun/([^/]++)(*:64)|/updateStasiun/([^/]++)(*:94)|/deleteStasiun/([^/]++)(*:124)|/rute/(?|de(?|tail/([^/]++)(*:159)|lete/([^/]++)(*:180))|EditPage/([^/]++)(*:206)|update/([^/]++)(*:229))|/kereta/(?|edit/([^/]++)(*:262)|update/([^/]++)(*:285)|delete/([^/]++)(*:308))|/storage/(.*)(*:330))/?$}sDu',
     ),
     3 => 
     array (
@@ -448,7 +448,51 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      98 => 
+      94 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'updateStasiun',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      124 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deleteStasiun',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      159 => 
       array (
         0 => 
         array (
@@ -471,7 +515,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      118 => 
+      180 => 
       array (
         0 => 
         array (
@@ -494,7 +538,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      144 => 
+      206 => 
       array (
         0 => 
         array (
@@ -517,7 +561,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      167 => 
+      229 => 
       array (
         0 => 
         array (
@@ -539,7 +583,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      200 => 
+      262 => 
       array (
         0 => 
         array (
@@ -562,30 +606,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      223 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'kereta.delete',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      246 => 
+      285 => 
       array (
         0 => 
         array (
@@ -607,13 +628,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      278 => 
+      308 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'deleteStasiun',
+            '_route' => 'kereta.delete',
           ),
           1 => 
           array (
@@ -621,29 +642,8 @@ app('router')->setCompiledRoutes(
           ),
           2 => 
           array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      309 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'updateStasiun',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
+            'GET' => 0,
+            'HEAD' => 1,
           ),
           3 => NULL,
           4 => false,
@@ -726,7 +726,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SaT6LHaCUdVtTdbk' => 
+    'generated::FxGF1KtRKWFdPtKt' => 
     array (
       'methods' => 
       array (
@@ -749,7 +749,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::SaT6LHaCUdVtTdbk',
+        'as' => 'generated::FxGF1KtRKWFdPtKt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -948,7 +948,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::RxW8PrSzKp5ZUNd9' => 
+    'generated::MOmvzUkq7mekhmvA' => 
     array (
       'methods' => 
       array (
@@ -977,7 +977,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004cd0000000000000000";}}',
-        'as' => 'generated::RxW8PrSzKp5ZUNd9',
+        'as' => 'generated::MOmvzUkq7mekhmvA',
       ),
       'fallback' => false,
       'defaults' => 
@@ -993,7 +993,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::JQSRDf5rOJxieeIz' => 
+    'generated::1X39VfrMrmxaOdMQ' => 
     array (
       'methods' => 
       array (
@@ -1006,16 +1006,17 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'adminLoggedIn',
         ),
         'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:48:"function () {
     return \\view(\'landingPage\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004d40000000000000000";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000004d50000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::JQSRDf5rOJxieeIz',
+        'as' => 'generated::1X39VfrMrmxaOdMQ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1044,6 +1045,7 @@ app('router')->setCompiledRoutes(
         'middleware' => 
         array (
           0 => 'web',
+          1 => 'adminLoggedIn',
         ),
         'uses' => 'App\\Http\\Controllers\\loginController@showLoginForm',
         'controller' => 'App\\Http\\Controllers\\loginController@showLoginForm',
@@ -1068,7 +1070,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ghZQc07iwgjWtos6' => 
+    'generated::cV5kXoo97KPS8Kb8' => 
     array (
       'methods' => 
       array (
@@ -1088,7 +1090,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ghZQc07iwgjWtos6',
+        'as' => 'generated::cV5kXoo97KPS8Kb8',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1164,6 +1166,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'stasiun.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'stasiun.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'inputStasiun',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PointController@store',
+        'controller' => 'App\\Http\\Controllers\\PointController@store',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'stasiun.store',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1255,6 +1294,80 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'updateStasiun' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'updateStasiun/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PointController@edit',
+        'controller' => 'App\\Http\\Controllers\\PointController@edit',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'updateStasiun',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'deleteStasiun' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'deleteStasiun/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PointController@destroy',
+        'controller' => 'App\\Http\\Controllers\\PointController@destroy',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'deleteStasiun',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'rute.index' => 
     array (
       'methods' => 
@@ -1278,6 +1391,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'rute.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'rute.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'rute/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\RuteController@store',
+        'controller' => 'App\\Http\\Controllers\\RuteController@store',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'rute.store',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1407,6 +1557,43 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'rute.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'rute/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\RuteController@update',
+        'controller' => 'App\\Http\\Controllers\\RuteController@update',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'rute.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'rute.delete' => 
     array (
       'methods' => 
@@ -1468,6 +1655,43 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'kereta.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'kereta.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'kereta/store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\KeretaController@store',
+        'controller' => 'App\\Http\\Controllers\\KeretaController@store',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'kereta.store',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1559,6 +1783,43 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'kereta.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'kereta/update/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\KeretaController@update',
+        'controller' => 'App\\Http\\Controllers\\KeretaController@update',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'kereta.update',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'kereta.delete' => 
     array (
       'methods' => 
@@ -1597,258 +1858,6 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'stasiun.store' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'stasiun/store',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PointController@store',
-        'controller' => 'App\\Http\\Controllers\\PointController@store',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'stasiun.store',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'kereta.update' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'kereta/update/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\KeretaController@update',
-        'controller' => 'App\\Http\\Controllers\\KeretaController@update',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'kereta.update',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'rute.update' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'rute/update/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\RuteController@update',
-        'controller' => 'App\\Http\\Controllers\\RuteController@update',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'rute.update',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'kereta.store' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'kereta/store',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\KeretaController@store',
-        'controller' => 'App\\Http\\Controllers\\KeretaController@store',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'kereta.store',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'rute.store' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'rute/store',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\RuteController@store',
-        'controller' => 'App\\Http\\Controllers\\RuteController@store',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'rute.store',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'deleteStasiun' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'deleteStasiun/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PointController@destroy',
-        'controller' => 'App\\Http\\Controllers\\PointController@destroy',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'deleteStasiun',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'updateStasiun' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'updateStasiun/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PointController@edit',
-        'controller' => 'App\\Http\\Controllers\\PointController@edit',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'updateStasiun',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
     'storage.local' => 
     array (
       'methods' => 
@@ -1865,7 +1874,7 @@ app('router')->setCompiledRoutes(
                         $config,
                         $isProduction
                     ))($request, $path);
-                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"00000000000008b00000000000000000";}}',
+                }";s:5:"scope";s:47:"Illuminate\\Filesystem\\FilesystemServiceProvider";s:4:"this";N;s:4:"self";s:32:"000000000000089d0000000000000000";}}',
         'as' => 'storage.local',
       ),
       'fallback' => false,

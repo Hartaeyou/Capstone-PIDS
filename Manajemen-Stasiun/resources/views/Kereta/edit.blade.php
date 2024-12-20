@@ -2,6 +2,7 @@
 @section('css')
     <link rel="stylesheet" href="{{ URL('css/stationInfo.css') }}">
 @endsection
+@section('title', 'Ubah Data Kereta')
 @section('content')
 
     <h1 style="font-weight : bold; font-size : 22px">Ubah Data Kereta {{ $kereta->nama_kereta }}</h1>
@@ -23,10 +24,14 @@
                 <div class="mb-3">
                     <label for="rute_id" style="font-weight : bold;  font-size : 15px; color : #6C6C6C" class="form-label">Pilih Rute</label>
                     <select class="form-select" aria-label="Default select example" name="rute_id" id="rute_id">
-                        <option value="{{ $kereta->rute_id }}">{{$kereta->rute->nama_rute}}</option>
+                        @if($kereta->rute)
+                        <option value="{{ $kereta->rute_id }}">{{$kereta->rute->rute_1}} - {{$kereta->rute->rute_2}}</option>
+                        @else
+                        <option value="">Pilih Rute</option>
+                        @endif
                         @foreach ($rutes as $rute)
                             <option value="{{ $rute->rute_id }}" {{ $kereta->rute_id == $rute->id ? 'selected' : '' }}>
-                                {{ $rute->nama_rute }}
+                                {{ $rute->rute_1 }} - {{ $rute->rute_2 }}
                             </option>
                         @endforeach
                     </select>
@@ -57,7 +62,33 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            const submitButton = form.querySelector('button[type="submit"]');
 
+            submitButton.addEventListener('click', function (e) {
+                e.preventDefault(); // Mencegah submit default
+
+                // SweetAlert untuk konfirmasi
+                Swal.fire({
+                    title: 'Konfirmasi Edit',
+                    text: 'Apakah Anda yakin ingin memperbarui data ini?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, perbarui!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Submit form jika user menekan 'Ya, perbarui!'
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
 
 @endsection
 

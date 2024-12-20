@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title', 'Daftar Rute')
 @section('content')
 
 <style>
@@ -58,7 +59,7 @@
             @foreach ($rutes as $rute)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $rute->nama_rute }}</td>
+                <td>{{ $rute->rute_1 }} - {{ $rute->rute_2 }}</td>
                 <td>{{ $rute->points->count() }}</td>
                 <td>
                     @include('Rute.Components.modal')
@@ -75,5 +76,36 @@
 </div>
 
 <!-- Bootstrap JS dan Popper.js -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-button');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Ambil URL dari atribut href pada tombol
+                const deleteUrl = this.getAttribute('href');
+
+                // SweetAlert untuk konfirmasi
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Redirect ke URL jika user menekan 'Ya, hapus!'
+                        window.location.href = deleteUrl;
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 @endsection

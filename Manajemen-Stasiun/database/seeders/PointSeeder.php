@@ -14,11 +14,11 @@ class PointSeeder extends Seeder
     public function run(): void
     {
         DB::table('point')->insert([
-            ['nama' => 'Stasiun Gambir', "longitude" => "106.845", "latitude" => "-6.175", 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Stasiun Bekasi', "longitude" => "106.845", "latitude" => "-6.175", 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Stasiun Bandung', "longitude" => "106.845", "latitude" => "-6.175", 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Stasiun Semarang Tawang', "longitude" => "106.845", "latitude" => "-6.175", 'created_at' => now(), 'updated_at' => now()],
-            ['nama' => 'Stasiun Surabaya Gubeng', "longitude" => "106.845", "latitude" => "-6.175", 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Manggarai', "longitude" => "106.8431604", "latitude" => "-6.2099022", 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Tanah Abang', "longitude" => "106.8108533", "latitude" => "-6.1856995", 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Duri', "longitude" => "106.7987967", "latitude" => "-6.1553011", 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Batu Ceper', "longitude" => "106.6622402", "latitude" => "-6.1720584", 'created_at' => now(), 'updated_at' => now()],
+            ['nama' => 'Bandara', "longitude" => "106.644124", "latitude" => "-6.121913", 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

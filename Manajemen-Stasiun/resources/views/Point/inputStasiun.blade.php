@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title', 'Tambah Data Stasiun')
 @section('content')
     <div class="container-fluid">
         <h1 style="font-weight : bold; font-size : 22px">Tambah Stasiun Baru</h1>
@@ -17,8 +18,11 @@
                 <input type="text" class="form-control" name="Latitude" id="Latitude" aria-describedby="emailHelp">
             </div>
             <div class="d-flex justify-content-end mt-2">
-                <button type="submit" class="btn btn-md" style="background-color : #EE6B23; color : white">Submit</button>
+                <button type="submit" class="btn btn-md submit-button" style="background-color : #EE6B23; color : white">Submit</button>
             </div>    
         </form>
     </div>
+    <script>
+    
+
 @endsection

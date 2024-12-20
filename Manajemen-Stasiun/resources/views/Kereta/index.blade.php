@@ -1,5 +1,5 @@
 @extends('layout.main')
-
+@section('title', 'Daftar Kereta')
 @section('content')
 
 <style>
@@ -67,10 +67,10 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $kereta->nama_kereta }}</td>
                 <td>{{ $kereta->kode_kereta }}</td>
-                <td>{{ $kereta->rute ? $kereta->rute->nama_rute : '-' }}</td>
+                <td>{{ $kereta->rute ? $kereta->rute->rute_1 : '-' }} - {{ $kereta->rute ? $kereta->rute->rute_2 : '-' }}</td>
                 <td>
                     <a type="button" class="btn btn-sm" style="color: #EE6B23" href="{{ route('kereta.edit', $kereta->kereta_id) }}"><i class="fa fa-pencil"></i></a>
-                    <a type="button" class="btn btn-sm" style="color: #EE6B23" href="{{ route('kereta.delete', $kereta->kereta_id) }}" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></a>
+                    <a type="button" class="btn btn-sm delete-button" style="color: #EE6B23" href="{{ route('kereta.delete', $kereta->kereta_id) }}" ><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         @endforeach
@@ -80,4 +80,36 @@
         {{ $keretas->links() }}
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-button');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Ambil URL dari atribut href pada tombol
+                const deleteUrl = this.getAttribute('href');
+
+                // SweetAlert untuk konfirmasi
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Redirect ke URL jika user menekan 'Ya, hapus!'
+                        window.location.href = deleteUrl;
+                    }
+                });
+            });
+        });
+    });
+</script>
 @endsection

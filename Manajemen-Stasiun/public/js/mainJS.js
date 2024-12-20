@@ -1,5 +1,8 @@
 const hamburger = document.querySelector('#button-navbar');
 const sidebarItems = document.querySelectorAll('.sidebar-item');
+const sidebar = document.querySelector('#sidebar');
+const sidebarLogoShort = document.querySelector('.sidebar-logo-short');
+const sidebarLogoFull = document.querySelector('.sidebar-logo');
 
 function removeActiveClassFromAll() {
     sidebarItems.forEach(item => {
@@ -23,6 +26,13 @@ hamburger.onclick = () => {
         profile.style.right = '260px'; // Adjust to match sidebar width when expanded
     } else {
         profile.style.right = '10vh'; // Original position
+    }
+    if (sidebar.classList.contains('expand')) {
+        sidebarLogoShort.style.display = 'none'; // Sembunyikan singkatan
+        sidebarLogoFull.style.display = 'block'; // Tampilkan teks lengkap
+    } else {
+        sidebarLogoShort.style.display = 'block'; // Tampilkan singkatan
+        sidebarLogoFull.style.display = 'none'; // Sembunyikan teks lengkap
     }
 };
 

@@ -33,9 +33,8 @@
             <div class="modal-footer">
                 <!-- <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Tutup</button> -->
                 <a type="button" class="btn btn-sm btn-warning" href="{{ route('rute.editPage', ['id' => $rute->rute_id]) }}">Edit</a>
-                <a type ="button" class="btn btn-sm btn-danger" href="{{ route('rute.delete', ['id' => $rute->rute_id]) }}">Hapus Rute</a>
+                <a type ="button" class="btn btn-sm btn-danger delete-button" href="{{ route('rute.delete', ['id' => $rute->rute_id]) }}">Hapus Rute</a>
                 <!-- Tombol Hapus -->
-                 
             </div>
         </div>
     </div>

@@ -31,7 +31,7 @@ class PointController extends Controller
             'longitude' => $Validate["Longitude"]
         ]);
     
-        return back()->with('success', 'Point berhasil ditambahkan!');
+        return redirect('/showStasiun')->with('success', 'Point berhasil ditambahkan!');
     }
 
     // Melihat semua data stasiun yang telah dimasukkan
@@ -61,7 +61,7 @@ class PointController extends Controller
             'latitude' => $Validate["Latitude"],
             'longitude' => $Validate["Longitude"]
         ]);
-        return redirect('/')->with('success', 'Point berhasil diedit!');
+        return redirect('/showStasiun')->with('success', 'Point berhasil diedit!');
     }
 
     // delete stasiun
@@ -69,6 +69,6 @@ class PointController extends Controller
     {
         $point = Point::find($id);
         $point->delete();
-        return redirect('/')->with('success', 'Point berhasil dihapus!');
+        return redirect('/showStasiun')->with('success', 'Point berhasil dihapus!');
     }
 }
