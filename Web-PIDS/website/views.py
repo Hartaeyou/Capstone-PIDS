@@ -3,6 +3,7 @@ from .models.histori import Histori
 from .models.kereta import Kereta
 from .models.rute import Rute
 from .models.point import Point
+import requests
 
 main = Blueprint('main', __name__)
 
@@ -29,3 +30,24 @@ def index():
     print("Stasiun List: %s", stasiun_list)
 
     return render_template('base.html', histori=histori_data, kereta=kereta_data, rute=rute_data, point=point_data, kereta_1=kereta_1, stasiun_list=stasiun_list)
+
+@main.route('/post/<int:id>', methods=['GET'])
+def getPost(id):
+    laravel_api_url = f'http://127.0.0.1:8000/api/posts/{id}'
+    print(laravel_api_url)
+
+    try:
+        # Mengambil data dari API Laravel
+        response = requests.get(laravel_api_url)
+        response.raise_for_status()
+        data = response.json()
+
+        # Berikan nilai default jika `rute` atau `points` adalah None
+        data['data']['rute'] = data['data'].get('rute') or {'points': []}
+
+        print(data)
+        return render_template('base2.html', data=data)
+    
+    except requests.exceptions.RequestException as e:
+        return f'Error: {e}'
+    
