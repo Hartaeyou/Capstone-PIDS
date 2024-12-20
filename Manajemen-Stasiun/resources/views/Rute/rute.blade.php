@@ -1,4 +1,5 @@
 @extends('layout.main')
+@section('title', 'Daftar Rute')
 @section('content')
 
 <style>
@@ -31,27 +32,6 @@
         font-size: 17px;
     }
 
-    /* Styling Pagination */
-    .page-link {
-        color: #000000 !important;
-        background-color: #ffffff;
-        border: 1px solid #dee2e6;
-    }
-
-    .page-link:hover {
-        color: #ffffff !important;
-        background-color: #EE6B23;
-        border-color: #EE6B23;
-    }
-
-    .page-item.active .page-link {
-        color: #ffffff !important;
-        background-color: #EE6B23;
-        border-color: #EE6B23;
-        font-weight: bold;
-    }
-
-
 </style>
 
 <div class="container-fluid">
@@ -72,14 +52,14 @@
                 <th>No</th>
                 <th>Nama Rute</th>
                 <th>Jumlah Stasiun</th>
-                <th>Aksi</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($rutes as $rute)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $rute->nama_rute }}</td>
+                <td>{{ $rute->rute_1 }} - {{ $rute->rute_2 }}</td>
                 <td>{{ $rute->points->count() }}</td>
                 <td>
                     @include('Rute.Components.modal')
@@ -96,5 +76,36 @@
 </div>
 
 <!-- Bootstrap JS dan Popper.js -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButtons = document.querySelectorAll('.delete-button');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Ambil URL dari atribut href pada tombol
+                const deleteUrl = this.getAttribute('href');
+
+                // SweetAlert untuk konfirmasi
+                Swal.fire({
+                    title: 'Apakah Anda yakin?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Redirect ke URL jika user menekan 'Ya, hapus!'
+                        window.location.href = deleteUrl;
+                    }
+                });
+            });
+        });
+    });
+</script>
 
 @endsection

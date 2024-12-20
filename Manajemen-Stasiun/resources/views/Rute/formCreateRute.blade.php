@@ -1,13 +1,23 @@
 @extends('layout.main')
-
+@section('title', 'Tambah Data Rute')
 @section('content')
 <div class="container-fluid">
     <h1>Buat Rute Baru</h1>
 
     <!-- Input untuk Nama Rute -->
-    <div class="mb-3">
-        <label for="nama_rute" class="form-label">Nama Rute</label>
-        <input type="text" class="form-control" id="nama_rute" name="nama_rute">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="rute_1" class="form-label">Rute Awal</label>
+                <input type="text" class="form-control" id="rute_1" name="rute_1">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="rute_2" class="form-label">Rute Akhir</label>
+                <input type="text" class="form-control" id="rute_2" name="rute_2" >
+            </div>
+        </div>
     </div>
 
     <!-- Daftar Point -->
@@ -88,7 +98,8 @@
     document.getElementById('submit-button').addEventListener('click', async function (e) {
         e.preventDefault();
 
-        const namaRute = document.getElementById('nama_rute').value;
+        const namaRute1 = document.getElementById('rute_1').value;
+        const namaRute2 = document.getElementById('rute_2').value;
         const selectedPoints = [];
 
         checkboxes.forEach((checkbox) => {
@@ -117,7 +128,8 @@
 
         // Buat objek data untuk dikirim
         const data = {
-            nama_rute: namaRute,
+            rute_1: namaRute1,
+            rute_2: namaRute2,
             points: selectedPoints
         };
 
@@ -132,8 +144,14 @@
             });
 
             if (response.ok) {
-                alert('Rute berhasil dibuat!');
-                window.location.href = "{{ route('rute.index') }}";
+                Swal.fire({
+                    title: 'Berhasil',
+                    text: 'Data berhasil disimpan!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.href = "{{ route('rute.index') }}";
+                });                
             } else {
                 const errorData = await response.json();
                 alert('Terjadi kesalahan: ' + (errorData.message || 'Silakan coba lagi.'));

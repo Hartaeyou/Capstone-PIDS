@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class adminLoggedIn
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Cek apakah pengguna sudah login
-        if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role === 'admin') {
-            return $next($request);
+        // Cek apakah pengguna sudah login dengan guard 'admin'
+        if (Auth::guard('admin')->check()) {
+            return back()->with('error', 'Anda telah logout otomatis.');
         }
-        return redirect('/')->with('error', 'Bukan Admin');
+
+        return $next($request);
+
     }
 }

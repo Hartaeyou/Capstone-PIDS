@@ -21,12 +21,16 @@ class RuteController extends Controller
 
     public function store (Request $request){
         $request->validate([
-            'nama_rute' => 'required|string|max:100',
+            'rute_1' => 'required|string|max:100',
+            'rute_2' => 'required|string|max:100',
             'points' => 'nullable|array', // Harus array
             'points.*.point_id' => 'nullable|exists:point,point_id', // ID point harus valid
             'points.*.sequence' => 'required|integer|min:1', // Urutan harus angka positif
         ]);
-        $rute = Rute::create(['nama_rute' => $request->nama_rute]);
+        $rute = Rute::create([
+            'rute_1' => $request->rute_1
+            , 'rute_2' => $request->rute_2
+        ]);
 
         foreach ($request->points as $point) {
             $rute->points()->attach($point['point_id'], ['sequence' => $point['sequence']]);
@@ -53,14 +57,15 @@ class RuteController extends Controller
         $rute = Rute::findOrFail($id);
         // Validasi input
         $request->validate([
-            'nama_rute' => 'required|string|max:100',
+            'rute_1' => 'required|string|max:100',
+            'rute_2' => 'required|string|max:100',
             'points' => 'nullable|array',
             'points.*.point_id' => 'nullable|exists:point,point_id',
             'points.*.sequence' => 'nullable|integer|min:1'
         ]);
 
         // Update nama rute
-        $rute->update(['nama_rute' => $request->nama_rute]);
+        $rute->update(['rute_1' => $request->rute_1, 'rute_2' => $request->rute_2]);
 
         // Update urutan point pada rute
         $points = [];
