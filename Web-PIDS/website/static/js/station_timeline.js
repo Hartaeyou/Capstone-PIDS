@@ -115,5 +115,5 @@ function reverseStationOrder() {
 // Inisialisasi rolling dan class update pertama kali
 updateStations();
 updateClass();
-rollingInterval = setInterval(updateStations, 9000);  // Jalankan rolling visual setiap 3 detik
-classUpdateInterval = setInterval(updateClass, 3000); // Perbarui class setiap 1 detik
+rollingInterval = setInterval(updateStations, 30000);  // Jalankan rolling visual setiap 3 detik
+classUpdateInterval = setInterval(updateClass, 10000); // Perbarui class setiap 1 detik
