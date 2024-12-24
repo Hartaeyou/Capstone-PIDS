@@ -33,7 +33,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::FxGF1KtRKWFdPtKt',
+            '_route' => 'generated::LtxLzkaf2gPosK7D',
           ),
           1 => NULL,
           2 => 
@@ -89,7 +89,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::MOmvzUkq7mekhmvA',
+            '_route' => 'generated::Z0q1ocqkcirIUep3',
           ),
           1 => NULL,
           2 => 
@@ -109,7 +109,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::1X39VfrMrmxaOdMQ',
+            '_route' => 'generated::vHII5yFPibwgNvif',
           ),
           1 => NULL,
           2 => 
@@ -146,7 +146,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::cV5kXoo97KPS8Kb8',
+            '_route' => 'generated::J7Sr832ErFdUDUXP',
           ),
           1 => NULL,
           2 => 
@@ -726,7 +726,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::FxGF1KtRKWFdPtKt' => 
+    'generated::LtxLzkaf2gPosK7D' => 
     array (
       'methods' => 
       array (
@@ -749,7 +749,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::FxGF1KtRKWFdPtKt',
+        'as' => 'generated::LtxLzkaf2gPosK7D',
       ),
       'fallback' => false,
       'defaults' => 
@@ -948,7 +948,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::MOmvzUkq7mekhmvA' => 
+    'generated::Z0q1ocqkcirIUep3' => 
     array (
       'methods' => 
       array (
@@ -958,7 +958,7 @@ app('router')->setCompiledRoutes(
       'uri' => 'up',
       'action' => 
       array (
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:874:"function () {
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:881:"function () {
                     $exception = null;
 
                     try {
@@ -973,11 +973,11 @@ app('router')->setCompiledRoutes(
                         $exception = $e->getMessage();
                     }
 
-                    return response(\\Illuminate\\Support\\Facades\\View::file(\'/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/vendor/laravel/framework/src/Illuminate/Foundation/Configuration\'.\'/../resources/health-up.blade.php\', [
+                    return response(\\Illuminate\\Support\\Facades\\View::file(\'D:\\\\MATERI KULIAH\\\\SEMESTER 7\\\\CAPSTONE\\\\Code1\\\\Capstone-PIDS\\\\Manajemen-Stasiun\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Configuration\'.\'/../resources/health-up.blade.php\', [
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000004cd0000000000000000";}}',
-        'as' => 'generated::MOmvzUkq7mekhmvA',
+        'as' => 'generated::Z0q1ocqkcirIUep3',
       ),
       'fallback' => false,
       'defaults' => 
@@ -993,7 +993,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::1X39VfrMrmxaOdMQ' => 
+    'generated::vHII5yFPibwgNvif' => 
     array (
       'methods' => 
       array (
@@ -1016,7 +1016,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::1X39VfrMrmxaOdMQ',
+        'as' => 'generated::vHII5yFPibwgNvif',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1070,7 +1070,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::cV5kXoo97KPS8Kb8' => 
+    'generated::J7Sr832ErFdUDUXP' => 
     array (
       'methods' => 
       array (
@@ -1090,7 +1090,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::cV5kXoo97KPS8Kb8',
+        'as' => 'generated::J7Sr832ErFdUDUXP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1868,7 +1868,7 @@ app('router')->setCompiledRoutes(
       'uri' => 'storage/{path}',
       'action' => 
       array (
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:3:{s:4:"disk";s:5:"local";s:6:"config";a:4:{s:6:"driver";s:5:"local";s:4:"root";s:100:"/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/app/private";s:5:"serve";b:1;s:5:"throw";b:0;}s:12:"isProduction";b:0;}s:8:"function";s:323:"function (\\Illuminate\\Http\\Request $request, string $path) use ($disk, $config, $isProduction) {
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:3:{s:4:"disk";s:5:"local";s:6:"config";a:4:{s:6:"driver";s:5:"local";s:4:"root";s:94:"D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\app/private";s:5:"serve";b:1;s:5:"throw";b:0;}s:12:"isProduction";b:0;}s:8:"function";s:323:"function (\\Illuminate\\Http\\Request $request, string $path) use ($disk, $config, $isProduction) {
                     return (new \\Illuminate\\Filesystem\\ServeFile(
                         $disk,
                         $config,
