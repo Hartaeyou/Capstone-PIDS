@@ -1,9 +1,9 @@
 <?php return array (
-  1 => 'broadcasting',
-  3 => 'concurrency',
-  4 => 'hashing',
-  12 => 'cors',
-  13 => 'view',
+  2 => 'broadcasting',
+  4 => 'concurrency',
+  5 => 'cors',
+  8 => 'hashing',
+  14 => 'view',
   'app' => 
   array (
     'name' => 'Laravel',
@@ -17,7 +17,7 @@
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
     'cipher' => 'AES-256-CBC',
-    'key' => 'base64:CIxD4LcnpqWUE1bZiE7vq0E87zXJai9wvQitzEN6oQA=',
+    'key' => 'base64:v9x92pO8MlM0ROlo0fPVOy4UO2tiFncadJzD4Jqi4j0=',
     'previous_keys' => 
     array (
     ),
@@ -172,8 +172,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/framework/cache/data',
-        'lock_path' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/framework/cache/data',
+        'path' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\framework/cache/data',
+        'lock_path' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -345,14 +345,14 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/app/private',
+        'root' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\app/private',
         'serve' => true,
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/app/public',
+        'root' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -372,7 +372,7 @@
     ),
     'links' => 
     array (
-      '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/public/storage' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/app/public',
+      'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\public\\storage' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\app/public',
     ),
   ),
   'logging' => 
@@ -397,14 +397,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/logs/laravel.log',
+        'path' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/logs/laravel.log',
+        'path' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -469,7 +469,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/logs/laravel.log',
+        'path' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -545,7 +545,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/resources/views/vendor/mail',
+        0 => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -664,7 +664,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/framework/sessions',
+    'files' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -741,23 +741,6 @@
   array (
     'default' => 'process',
   ),
-  'hashing' => 
-  array (
-    'driver' => 'bcrypt',
-    'bcrypt' => 
-    array (
-      'rounds' => '12',
-      'verify' => true,
-    ),
-    'argon' => 
-    array (
-      'memory' => 65536,
-      'threads' => 1,
-      'time' => 4,
-      'verify' => true,
-    ),
-    'rehash_on_login' => true,
-  ),
   'cors' => 
   array (
     'paths' => 
@@ -786,13 +769,30 @@
     'max_age' => 0,
     'supports_credentials' => false,
   ),
+  'hashing' => 
+  array (
+    'driver' => 'bcrypt',
+    'bcrypt' => 
+    array (
+      'rounds' => '12',
+      'verify' => true,
+    ),
+    'argon' => 
+    array (
+      'memory' => 65536,
+      'threads' => 1,
+      'time' => 4,
+      'verify' => true,
+    ),
+    'rehash_on_login' => true,
+  ),
   'view' => 
   array (
     'paths' => 
     array (
-      0 => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/resources/views',
+      0 => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\resources\\views',
     ),
-    'compiled' => '/home/rayhanrayafarabi/Documents/Github/Capstone/Capstone-PIDS/Manajemen-Stasiun/storage/framework/views',
+    'compiled' => 'D:\\MATERI KULIAH\\SEMESTER 7\\CAPSTONE\\Code1\\Capstone-PIDS\\Manajemen-Stasiun\\storage\\framework\\views',
   ),
   'tinker' => 
   array (
