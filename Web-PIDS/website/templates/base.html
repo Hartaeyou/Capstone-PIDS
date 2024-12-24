@@ -20,11 +20,11 @@
           <!-- card tentang informasi kereta -->
           <div class="col-md-6">
             <div class="card w-100 trainInformation">
-              <div class="card-body" style="height: 175px">
-                <h5 class="card-title fw-normal" style="font-size:25px">Anda Menaiki Kereta:</h5>
+              <div class="card-body" style="height: 210px">
+                <h5 class="card-title fw-normal" style="font-size:20px">Anda Menaiki Kereta:</h5>
                 {% if data %}
-                <p class="fw-bold text-center" style="font-size: 44px;">{{ data['data']['nama_kereta'] }}</p>
-                <p class="fw-semibold text-center" style="font-size: 37px; margin-top: -1.55rem;">{{ data['data']['kode_kereta'] }}</p>
+                <p class="fw-semibold text-center" style="font-size: 23px;">{{ data['data']['kode_kereta'] }}</p>
+                <p class="fw-bold text-center" style="font-size: 45px; margin-top: -2rem;">{{ data['data']['nama_kereta'] }}</p>
                 {% else %}
                 <p class="fw-bold text-center" style="font-size: 44px;">Kereta tidak ditemukan</p>
                 {% endif %}
@@ -35,10 +35,10 @@
 
           <!-- card tentang tanggal sekarang -->
           <div class="col-md-6">
-            <div class="card w-100 timeNow" style="height: 175px">
+            <div class="card w-100 timeNow" style="height: 210px">
               <div class="card-body">
-                <h2 id="nowTime" class="text-center fw-bold p-2" style="font-size: 66px">15.00</h2>
-                <p id="nowDate" class="text-center fw-semibold" style="font-size: 25px; margin-top: -1.55rem;">Selasa, 20 November 2023</p>
+                <h2 id="nowTime" class="text-center fw-bold p-2" style="font-size: 66px; margin-top: 2vh;">15.00</h2>
+                <p id="nowDate" class="text-center fw-semibold" style="font-size: 25px; margin-top: -1rem;">Selasa, 20 November 2023</p>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
                     <p class="card-text fw-normal" id="stationStatus" style="font-size: 51px;">
                         Selamat Datang
                     </p>
-                    <p class="card-text fw-bold" id="nextStationName" style="font-size: 64px;">
+                    <p class="card-text fw-bold" id="nextStationName" style="font-size: 75px;">
                         Perjalanan akan segera dimulai
                     </p>
                 </div>
